@@ -1,4 +1,4 @@
-# ProyectoServidor
+# ProyectoCliente
 Proyecto de la primera evaluacion de Desarrollo Web en Entorno cliente
 Esta es la estructura del proyecto:
 |   package.json
@@ -34,7 +34,7 @@ Esta es la estructura del proyecto:
 # Estructura del Proyecto
 Este proyecto está diseñado para gestionar empresas y videojuegos a través de funcionalidades CRUD (Crear, Leer, Actualizar, Eliminar). A continuación, se detalla la estructura de archivos y carpetas:
 
-# Raíz del proyecto (ProyectoServidor\)
+# Raíz del proyecto (ProyectoCliente\)
 package.json: Archivo que contiene las dependencias y scripts necesarios para el proyecto.
 README.md: Documentación del proyecto.
 
