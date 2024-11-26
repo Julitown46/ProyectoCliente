@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Videojuego</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./videojuego.css">
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../assets/icon.png" alt="LOGO">Gestión de Empresas</a>
+        <nav>
+            <div class="lista">
+                <ul>
+                    <li><a href="../empresa/listaEmpresas.html">Lista de Empresas</a></li>
+                    <li><a href="./listaVideojuegos.html">Lista de Videojuegos</a></li>
+                </ul>
+            </div>
+        </nav>
+        <input type="checkbox" id="desplegable">
+        <label for="desplegable" class="icono">☰</label>
+    </header>
+
+    <div class="container my-5">
+        <h1 class="text-center">Editar Videojuego</h1>
+        <form id="formEditarVideojuego">
+            <div class="mb-3">
+                <label for="editarNombreVideojuego" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="editarNombreVideojuego" required>
+            </div>
+            <div class="mb-3">
+                <label for="editarGeneroVideojuego" class="form-label">Género</label>
+                <input type="text" class="form-control" id="editarGeneroVideojuego" required>
+            </div>
+            <div class="mb-3">
+                <label for="editarEmpresaVideojuego" class="form-label">Empresa</label>
+                <select class="form-select" id="editarEmpresaVideojuego">
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="editarFechaLanzamientoVideojuego" class="form-label">Fecha de Lanzamiento</label>
+                <input type="date" class="form-control" id="editarFechaLanzamientoVideojuego" required>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+            <a href="listaVideojuegos.html" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+    <footer>
+        <div class="enlaces-footer">
+            <p>Proyecto hecho por Julian Moreno Cuenca 2ºDAW</p>
+        </div>
+    </footer>
+</body>
+</html>
