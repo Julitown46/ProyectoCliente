@@ -1,5 +1,3 @@
-import {Empresa} from "../empresa/Empresa.js";
-
 export class Videojuego {
     constructor(id, nombre, genero, empresaId, fechaLanzamiento) {
         this.id = id;

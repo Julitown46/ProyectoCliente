@@ -1,14 +1,13 @@
-import {Videojuego} from "./Videojuego.js";
-import { videojuegos, empresas, agregarVideojuego, eliminarVideojuego } from '../main.js';
+import { videojuegos, empresas, inicializarDatos, eliminarVideojuego } from '../main.js';
 
-function actualizarTablaVideojuegos() {
+export function actualizarTablaVideojuegos() {
     const tabla = document.getElementById("tablaVideojuegos");
-    tabla.innerHTML = ""; 
+    tabla.innerHTML = "";
 
     videojuegos.forEach((videojuego) => {
         const fila = document.createElement("tr");
-        
-        const empresaAsociada = empresas.find((emp) => emp.id === videojuego.empresaId);        
+
+        const empresaAsociada = empresas.find((emp) => emp.id === videojuego.empresaId);
         const nombreEmpresa = empresaAsociada ? empresaAsociada.nombre : "Desconocida";
 
         fila.innerHTML = `
@@ -17,16 +16,32 @@ function actualizarTablaVideojuegos() {
             <td class="text-white">${videojuego.genero}</td>
             <td class="text-white">${nombreEmpresa}</td>
             <td class="text-white">${videojuego.fechaLanzamiento}</td>
-            <td>
-                <a href="./editarVideojuego.html?id=${videojuego.id}" class="btn btn-success btn-sm">Editar</a>
-                <button class="btn btn-secondary btn-sm" onclick="eliminarVideojuego(${videojuego.id})">Eliminar</button>
-            </td>
         `;
 
+        const accionesTd = document.createElement("td");
+
+        const btnEditar = document.createElement("a");
+        btnEditar.href = `./editarVideojuego.html?id=${videojuego.id}`;
+        btnEditar.className = "btn btn-primary btn-sm me-2";
+        btnEditar.textContent = "Editar";
+        accionesTd.appendChild(btnEditar);
+
+        const btnEliminar = document.createElement("button");
+        btnEliminar.className = "btn btn-secondary btn-sm";
+        btnEliminar.textContent = "Eliminar";
+
+        btnEliminar.addEventListener("click", () => {
+            if(eliminarVideojuego(videojuego.id)){
+                actualizarTablaVideojuegos();
+                alert("Videojuego eliminado correctamente.");
+            }
+        });
+        accionesTd.appendChild(btnEliminar);
+
+        fila.appendChild(accionesTd);
         tabla.appendChild(fila);
     });
 }
 
-const videojuego1 = new Videojuego(1, "Dark Souls", "Souls", 1, "13/02/2011");
-agregarVideojuego(videojuego1);
+inicializarDatos();
 actualizarTablaVideojuegos();
