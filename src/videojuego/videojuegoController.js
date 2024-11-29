@@ -22,7 +22,7 @@ export function actualizarTablaVideojuegos() {
 
         const btnEditar = document.createElement("a");
         btnEditar.href = `./editarVideojuego.html?id=${videojuego.id}`;
-        btnEditar.className = "btn btn-primary btn-sm me-2";
+        btnEditar.className = "btn btn-success btn-sm me-2";
         btnEditar.textContent = "Editar";
         accionesTd.appendChild(btnEditar);
 
