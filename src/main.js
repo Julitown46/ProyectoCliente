@@ -1,8 +1,8 @@
 import {Empresa} from "./empresa/Empresa.js";
 import {Videojuego} from "./videojuego/Videojuego.js";
 
-export const empresas = []; 
-export const videojuegos = []; 
+export let empresas = []; 
+export let videojuegos = []; 
 
 export function agregarEmpresa(empresa) {
     if (empresa instanceof Empresa) {
@@ -19,9 +19,6 @@ export function agregarVideojuego(videojuego) {
         throw new Error("El objeto no es una instancia válida de Videojuego");
     }
 }
-
-console.log(videojuegos[0]);
-
 
 export function eliminarEmpresa(id) {
     const tieneVideojuegos = videojuegos.some((vj) => vj.empresaId === id);
@@ -40,4 +37,3 @@ export function eliminarVideojuego(id) {
         videojuegos.splice(index, 1);
     }
 }
-

@@ -1,23 +1,22 @@
 import {Videojuego} from "./Videojuego.js";
-import {Empresa} from "../empresa/Empresa.js";
 import { videojuegos, empresas, agregarVideojuego, eliminarVideojuego } from '../main.js';
 
 function actualizarTablaVideojuegos() {
     const tabla = document.getElementById("tablaVideojuegos");
-    tabla.innerHTML = "";
+    tabla.innerHTML = ""; 
 
     videojuegos.forEach((videojuego) => {
         const fila = document.createElement("tr");
-
-        const empresaAsociada = empresas.find((emp) => emp.id === videojuego.empresaId);
+        
+        const empresaAsociada = empresas.find((emp) => emp.id === videojuego.empresaId);        
         const nombreEmpresa = empresaAsociada ? empresaAsociada.nombre : "Desconocida";
 
         fila.innerHTML = `
-            <td class="text-white>${videojuego.id}</td>
-            <td class="text-white>${videojuego.nombre}</td>
-            <td class="text-white>${videojuego.genero}</td>
-            <td class="text-white>${nombreEmpresa}</td>
-            <td class="text-white>${videojuego.fechaLanzamiento}</td>
+            <td class="text-white">${videojuego.id}</td>
+            <td class="text-white">${videojuego.nombre}</td>
+            <td class="text-white">${videojuego.genero}</td>
+            <td class="text-white">${nombreEmpresa}</td>
+            <td class="text-white">${videojuego.fechaLanzamiento}</td>
             <td>
                 <a href="./editarVideojuego.html?id=${videojuego.id}" class="btn btn-success btn-sm">Editar</a>
                 <button class="btn btn-secondary btn-sm" onclick="eliminarVideojuego(${videojuego.id})">Eliminar</button>
